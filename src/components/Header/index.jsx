@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Pandanjo from "./../../assets/logo-pandanjo.webp";
 
-import { Container, Logo, ContainerLogo, ContainerNav} from "./styles"; 
+import { Container, Logo, ContainerLogo, MenuIcon, Sidebar, Tab} from "./styles"; 
 
 function Header(){
-    return(
-        <Container>
-           
-            <ContainerLogo>
-                <Logo src={Pandanjo}/>
-            </ContainerLogo>
 
-            <ContainerNav>
-                <div className="desktop-menu">
-                    <ul>
-                        <li><a href="#Inicio">Início</a></li> &gt;
-                        <li><a href="#Feminino">Feminino</a></li> &gt;
-                        <li><a href="#Vestidos">Vestidos</a></li> &gt;
-                        <li><a href="#Contact">Ver detalhes</a></li> 
-                    </ul>
-                </div>
-            </ContainerNav>
-        </Container>
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+      setIsOpen(!isOpen);
+    };
+  
+    return(
+    <Container>
+        <ContainerLogo>
+          <Logo src={Pandanjo}/>
+        </ContainerLogo>
+
+        <MenuIcon onClick={toggleMenu}>☰</MenuIcon>
+        <Sidebar isOpen={isOpen}>
+          <Tab>Home</Tab>
+          <Tab>Feminino</Tab>
+          <Tab>Vestidos</Tab>
+          <Tab>Novidades</Tab>
+          <Tab>Login</Tab>
+          <Tab>Contato</Tab>
+          <Tab>Sobre</Tab>
+        </Sidebar>
+    </Container>
     )
 }
 

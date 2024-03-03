@@ -1,9 +1,13 @@
 import {React, useRef} from "react";
 
 import Button from "./../../components/Button";
-
-
-import Mulher2 from "./../../assets/imagem2.png";
+import MessageButton from "../../components/MessageButton";
+import PaymentSelection from "../../components/PaymentOptions";
+import MessageReturn from "../../components/MessageReturn";
+import Information from "../../components/Information";
+import Carousel from "../../components/Carousel";
+import Footer from "../../components/Footer";
+import SubscribeForm from "../../components/SubscribeForm";
 
 import Stars from "./../../assets/estrela.png";
 
@@ -11,43 +15,75 @@ import bg1 from "./../../assets/principal.jpg";
 import bg2 from "./../../assets/principal2.jpg";
 import bg3 from "./../../assets/principal3.jpg";
 
-import {ContainerMain, ContainerPhoto, ContainerCard, Star, ContainerOpinion, ContainerColor, ContainerColors, ColorBlue, ColorOrange, ColorPurple, ContainerSelect, ContainerMeasures, ContainerPP, ContainerP, ContainerM, ContainerG, ContainerGG, Size, Stock, ContainerPrice, Offer, Price, Price1, Price2, Line, Title, ContainerPage, NextButton, ContentContainer, PrevButton, SlidePanel} from "./styles";
+import {
+    ContainerMain, 
+    ContainerPhoto, 
+    ContainerCard, 
+    Star, 
+    ContainerOpinion, 
+    ContainerColor, 
+    ArrowRight, 
+    ArrowLeft, 
+    ContainerColors, 
+    ColorBlue, 
+    ColorOrange, 
+    ColorPurple, 
+    ContainerSelect,
+    ContainerMeasures, 
+    ContainerPP, 
+    ContainerP, 
+    ContainerM, 
+    ContainerG, 
+    ContainerGG, 
+    Size, 
+    Stock, 
+    ContainerPrice, 
+    Offer, 
+    Price, 
+    Price1, 
+    Price2, 
+    Line, 
+    Title, 
+    ContainerPage, 
+    NextButton, 
+    ContentContainer, 
+    PrevButton, 
+    SlidePanel,
+    ContainerContent,
+    ContainerCarousel,
+    ContainerTitle, 
+    ContainerFooter,
+    ContainerRights
+} from "./styles";
 
 
 
 function Checkout(){
-  
-    
-
+   
     const images = [bg1, bg2, bg3]
     let imageContainerRef = useRef(null)
 
     const prev = () => imageContainerRef.current.scrollLeft -=250
     const next = () => imageContainerRef.current.scrollLeft +=250
 
-
     return(
-        
-       
 
+    <>
         <ContainerMain>
-            <ContainerPhoto> 
-            <ContainerPage>
-                
-                <ContentContainer className='content'>
-                  
-                    <PrevButton className='prev' onClick={prev}></PrevButton>
-                
-                    
+            <ContainerPhoto>
+            <ContainerPage> 
+                <ContentContainer className='content'>    
+                    <PrevButton className='prev' onClick={prev}>
+                        <ArrowLeft> &lt;</ArrowLeft>
+                    </PrevButton>
                     <SlidePanel className='slide-panel' ref={imageContainerRef}>
                         {images.map(image => {return(<img src={image}/>)})}
-                    </SlidePanel>
-                    
-                    <NextButton className='next' onClick={next}></NextButton>
+                    </SlidePanel>    
+                    <NextButton className='next' onClick={next}>
+                        <ArrowRight>&gt;</ArrowRight>
+                    </NextButton>
                 </ContentContainer>
-              
             </ContainerPage>
-              
             </ContainerPhoto>
 
             <ContainerCard>
@@ -121,15 +157,37 @@ function Checkout(){
                 <Title>Parcelados em até 4x sem juros no cartão</Title>
 
                 <Button/>
-            
+                
+               
+                
+                <MessageButton/>
+
+                <PaymentSelection />
+                
+                <MessageReturn/> 
+       
             </ContainerCard>
-   
+
+  
         </ContainerMain>
 
-           
+        <ContainerContent>
+            <Information/>
+        </ContainerContent>
 
-          
-       
+        <ContainerCarousel>
+            <ContainerTitle>Produtos que você também pode gostar!</ContainerTitle>
+            <Carousel/>
+        </ContainerCarousel>
+
+        <SubscribeForm/>
+
+        <ContainerFooter>
+            <Footer/>
+        </ContainerFooter> 
+
+        <ContainerRights>Todos os direitos reservados</ContainerRights>  
+    </>
     )
 }
 

@@ -10,14 +10,28 @@ export const ContainerMain = styled.main`
     align-items: flex-start;
     gap: 17px;
     margin-left: -50px;
+    width: auto;
+    height: 800px;
 `
 export const ContainerPhoto = styled.div`
    display: flex;
-  
+
+   @media only screen and (max-width: 999px) {
+    margin-left: 60px;
+    }
+
+    @media only screen and (max-width: 800px) {
+        margin-left: -60px;
+    }
 `
 export const ContainerCard = styled.div`
     margin-left: 60px;
     font-size: 14px; 
+
+    @media only screen and (max-width: 800px) {
+        margin-top: 800px;
+        margin-left: -500px;
+    }
 
     p{
         font-size: 13px;
@@ -58,7 +72,6 @@ export const ContainerColors = styled.p`
     width: 200px;
     display: flex;
     justify-content: flex-start; 
-    //background: red;
     gap: 15px;
     margin-top: 15px;
 
@@ -112,7 +125,6 @@ export const ColorPurple = styled.p`
 }
 `
 export const ContainerSelect = styled.h3`
-
     width: 55%;
     height: 50%;
 
@@ -127,14 +139,12 @@ export const ContainerMeasures = styled.p`
     width: 100%;
     display: flex;
     justify-content: flex-start; 
-    //background: red;
     gap: 15px;
     margin-top: 15px;
 `
 export const ContainerPP = styled.div`
     width: 50px;
     height: 50px;
-    //background: red; 
     gap: 5px;     
     border-radius: 10px;
     cursor: pointer;
@@ -275,13 +285,11 @@ export const Size = styled.p`
     justify-content: center; 
     text-decoration: underline;
     cursor: pointer;
-    
 `
 export const Stock = styled.div`
     font-size: 13px;
     color: #E30E41;
     margin-top: 14px;
-    
 `
 export const ContainerPrice = styled.div`
     font-size: 13px;
@@ -329,15 +337,14 @@ export const Title = styled.div`
 `
 export const ContainerPage = styled.div`
     width: 100%;
-    height: 100vh;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
    
     ::-webkit-scrollbar {
         display: none;
-    }
-    
+    }  
 `
 export const ContentContainer = styled.div`
     width: 100%;
@@ -345,7 +352,6 @@ export const ContentContainer = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    //background: red;  
 `
 export const SlidePanel = styled.div`
     display: flex;
@@ -354,6 +360,10 @@ export const SlidePanel = styled.div`
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    align-items: lex-end;
+    box-shadow: 0px 10px 10px #00000056;
+    margin-top: -50px;
+    aligh-itens:center;
 
     img{
         scroll-snap-align: start;
@@ -366,24 +376,11 @@ export const PrevButton = styled.div`
     height: 2em;
     cursor: pointer;
     background-position: center;
-    background-size: cover;
     background-repeat: no-repeat;
     transition: 0.25s;
     border-radius: 20px;
-    border: 1px solid black;
-
-    &:hover{
-        transform: scale(1.01);
-        border: 1px solid #801BC2;
-        box-shadow: 0px 10px 10px black;
-        backgraund: #801BC2;
-        }
-
-    .prev:hover { 
-        transform: scale(1.25);
-    }
-
-
+    backgraund: #801BC2;
+    font-size: 20px;
 `
 export const NextButton = styled.div`
     width: 2em;
@@ -393,18 +390,60 @@ export const NextButton = styled.div`
     background-repeat: no-repeat;
     transition: 0.25s;
     border-radius: 20px;
-    border: 1px solid black;
     backgraund: #801BC2;
-    
-    &:hover{
-        transform: scale(1.01);
-        border: 1px solid #801BC2;
-        box-shadow: 0px 10px 10px black;
-        backgraund: #801BC2;
-        }
+    font-size: 20px;
+`
+export const ArrowRight = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+`
+export const ArrowLeft = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+`
+export const ContainerContent = styled.div`
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+export const ContainerCarousel = styled.div`
+`
+export const ContainerTitle = styled.h1`
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 40px;
+`
+export const ContainerFooter = styled.div`
+    width: 100%;
+    height: 300px;
+    max-width: 1216px;
+    margin: 0 auto;
+    margin-top:60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+export const ContainerRights = styled.div`
+    width: 100%;
+    max-width: 910px;
+    margin: 0 auto;
+    margin-top:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -70px;
+    border-top: 1px solid black;
 
-    .next:hover { 
-        transform: scale(1.25);
+    @media only screen and (max-width: 800px) {
+        margin-top: 20px;
     }
 `
 
